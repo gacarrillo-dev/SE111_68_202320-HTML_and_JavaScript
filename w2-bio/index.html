@@ -7,11 +7,55 @@
         <meta name="author" content="Gabriel Carrillo" />
         <meta name="description" content="Week 2 Bio webpage" />
         <title>W2|Bio</title>
+        <style>
+            /*in here we must write in CSS*/
+            /*SELECTING in CSS & Javascript: select specific element(s) on a page
+                *by ELEMENT type        ex: body, div, p
+                *by ID attribute        ex: #wrapper, #nav, #footer, #title
+                *by CLASS attribute     ex: coming in week 3 :]
+        */
+
+            div {
+                /*applies to ALL divs in the page*/
+                border: 1px solid black;
+                padding: 10px; /*adds 10px of space to all 4 sides inbetween content & border*/
+                margin: 5px; /*adds 5px of space between elements (space added outside of border)*/
+            }
+
+            #header {
+                /*# specifies ID name, only applies to single element with that ID */
+
+                background-color: white;
+            }
+
+            #nav,
+            #footer {
+                /*can provide list or collection of elements to select*/
+                background-color: rgb(200, 200, 200);
+            }
+
+            a {
+                /*styles all a (link) tags in page*/
+                text-decoration: none; /*removes the underline*/
+                font-size: 20px;
+                margin-right: 25px; /*adds 25 px of space to the right OF EACH link*/
+            }
+
+            /*4 default states --> :link, :hover, :active, :visited*/
+            a:hover {
+                color: teal;
+            }
+
+            #footer {
+                font-size: 10px;
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <header id="header">
-            <h1>Gabriel Carrillo - About Me</h1>
-        </header>
+            <h1>Gabriel Carrillo</h1>
+            </header>
             <hr />
             <!-- NAVIGATION ---------------->
             <div id="nav">
@@ -37,7 +81,9 @@
             <!--/#bio --->
 
             <div id="school">
-                <h2>Schooling</h2>
+                <h2>Schooling
+                    <img src="images/mortarboard.png" alt="Motarboard png" width="25" height="25">
+                </h2>
 
                 <ol>
                     <li>Taunton High School</li>
