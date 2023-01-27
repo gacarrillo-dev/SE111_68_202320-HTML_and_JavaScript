@@ -17,6 +17,8 @@
             }
 
             p {
+                font-family: Cambria, Cochin, Georgia, Times, "Times New Roman",
+                    serif;
                 text-align: center;
                 color: whitesmoke;
             }
@@ -26,6 +28,11 @@
                 color: whitesmoke;
             }
 
+            img {
+                border: 3px solid rgb(102, 77, 27);
+                border-radius: 10px;
+                margin: 5px;
+            }
             .border {
                 /*border is a CLASS in the HTML, called in using a . */
 
@@ -37,11 +44,11 @@
             #nav {
                 /*nav is an ID in the HTML, called in using a #   */
 
-                border: 1px solid black;;
+                border: 1px solid black;
                 border-radius: 10px;
                 text-align: center;
                 color: whitesmoke;
-                background-color: rgb(0, 0, 0)
+                background-color: rgb(0, 0, 0);
             }
 
             #wrapper {
@@ -86,8 +93,32 @@
             <!--/ #nav-->
 
             <!--main page content -- this usualy changes from page to page-->
-            <div id="content" class="border">
-                <p>content of page</p>
+            <div id="content" class="border" style="padding: 10px">
+                <p>Preview of each page</p>
+                <a href="about.html"
+                    ><img
+                        src="images/pages/aboutme.png"
+                        alt="About me page"
+                        tabindex="0"
+                        width="275"
+                        height="160"
+                /></a>
+                <a href="schools.html"
+                    ><img
+                        src="images/pages/schools.png"
+                        alt="Schools page"
+                        tabindex="0"
+                        width="275"
+                        height="160"
+                /></a>
+                <a href="hobbies.html"
+                    ><img
+                        src="images/pages/hobbies.png"
+                        alt="Hobbies page"
+                        tabindex="0"
+                        width="275"
+                        height="160"
+                /></a>
             </div>
             <!--/ #content-->
 
