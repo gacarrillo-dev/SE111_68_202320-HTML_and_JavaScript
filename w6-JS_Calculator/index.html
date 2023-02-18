@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Gabriel Carrillo" />
+        <meta name="description" content="W6 | Javascript Pay Calculator" />
+        <title>W6 | Javascript Pay Calculator</title>
+    </head>
+    <body>
+        <!-- HEADING -->
+        <h1>Week 6 | Javascript Pay Calculator</h1>
+
+        <!-- IN DOCUMENT JAVASCRIPT -->
+
+        <script>
+            // comment in Javascript
+            // every thing in side of the <script> tags MUST be written in Javascript
+            // creating (delcaring) a variable -- keyword "var"
+
+            // Declare variables
+            var rate = 0;
+            var hours = 0;
+            var tax = 0;
+            var grossPay = 0;
+            var netPay = 0;
+
+            // Get hourly rate from user
+            var rate = Number(prompt(`Enter hourly rate: `));
+
+            // Get hours worked from user
+            var hours = Number(prompt(`Enter number of hours worked: `));
+
+            grossPay = rate * hours; // calculate gross pay
+            tax = grossPay * 0.2; // calculate taxes taken
+            netPay = grossPay - tax; // calculate net pay
+
+            // Display pay information
+            alert(
+                `Gross Pay: $${grossPay.toFixed(2)} \nUncle Sam: $${tax.toFixed(
+                    2
+                )} \nNet Pay: $${netPay.toFixed(2)}`
+            );
+
+            // Display pay information to console
+            console.log(`Gross Pay: $${grossPay.toFixed(2)}`);
+            console.log(`Uncle Sam: $${tax.toFixed(2)}`);
+            console.log(`Net Pay: $${netPay.toFixed(2)}`);
+        </script>
+    </body>
+</html>
