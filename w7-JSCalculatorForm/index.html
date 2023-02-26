@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="name" content="Gabriel Carrillo" />
+        <meta
+            name="description"
+            content="Week 7 Javascript Pay Calculator Form"
+        />
+        <title>W7 | Javascript Pay Calculator Form</title>
+    </head>
+    <body>
+        <h1>W7 - Pay Calculator Form</h1>
+
+        <form>
+            <table>
+                <tr>
+                    <!--left side: questions-->
+                    <td>
+                        <label for="first" class="questions">FIRST: </label>
+                    </td>
+
+                    <!--right side: input values-->
+                    <td>
+                        <input type="text" name="first" id="first" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <!--left side: questions-->
+                    <td>
+                        <label for="last" class="questions">LAST: </label>
+                    </td>
+
+                    <!--right side: input values-->
+                    <td>
+                        <input type="text" name="last" id="last" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <!--left side: questions-->
+                    <td>
+                        <label for="hours" class="questions"
+                            >HOURS WORKED:
+                        </label>
+                    </td>
+
+                    <!--right side: input values-->
+                    <td>
+                        <input type="text" name="hours" id="hours" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <!--left side: questions-->
+                    <td>
+                        <label for="rate" class="questions"
+                            >HOURLY RATE:
+                        </label>
+                    </td>
+
+                    <!--right side: input values-->
+                    <td>
+                        <input type="text" name="rate" id="rate" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <!--left side: questions-->
+
+                    <td>
+                        <br />
+                        <br />
+                        <input type="button" id="enter-button" value="ENTER" />
+                    </td>
+
+                    <!--right side: input values-->
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+
+        <br />
+        <br />
+
+        <!--a div to hold some info from the form-->
+
+        <h2 id="hello">Employee Info:</h2>
+
+        <div
+            id="info"
+            style="
+                border: 1px solid black;
+                width: 500px;
+                height: 200px;
+                border-radius: 10px;
+                background-color: rgb(190, 190, 190);
+            "
+        ></div>
+        <!--# info-->
+
+        <br />
+        <!--NOTES FOR TESTING:
+                *clicking the below button will trigger a call to the submitNow()
+                *success will be determined if correct info is displayed in the alert()-->
+        <h3>
+            <i>If the above information is correct, please press "SUBMIT"</i>
+        </h3>
+        <input type="button" id="submit" value="SUBMIT" />
+
+        <!--IN-DOCUMENT JAVASCRIPT BELOW-->
+        <script>
+            //selecting elements from the HTML document --> 'document' current HTML file
+            //global variable: accessible everywhere after its creation
+            var body = document.querySelector(`body`); //selecting by HTML tag name
+
+            //accessing HTML attributes
+            body.id = `main-body`;
+            console.log(body);
+
+            //set up an actionable event so that when a button is clicked, information is written to the page. FIRST: add event listener for event (action)
+            //adding an event listern to the #enter-button at end of the mini form
+            document
+                .querySelector(`#enter-button`)
+                .addEventListener(`click`, alertInfo);
+
+            //alertInfo() functiond definition is below - must include e/ev/event
+            //requires the 'e' parameter to hold event data
+            function alertInfo(e) {
+                //local variables: their value only exists inside of alertInfo()
+                //these local variables will hold the VALUES from the mini form
+                var first = document.querySelector(`#first`).value;
+                var last = document.querySelector(`#last`).value;
+                var hours = document.querySelector(`#hours`).value;
+                var rate = document.querySelector(`#rate`).value;
+
+                //numbers from input need to be cast!
+                hours = Number(hours);
+                rate = Number(rate);
+
+                //store HTML element #info into a var to use
+                var info = document.querySelector(`#info`);
+
+                //calculate gross pay
+                var grossPay = (hours * rate).toFixed(2);
+                var tax = (grossPay * 0.2).toFixed(2);
+                var netPay = (grossPay - tax).toFixed(2);
+
+                //once values are stored, we can use them!
+                var full = first + ` ` + last;
+
+                //test values before writing to the HTML
+                console.log(
+                    `Name: ${full} \nHours: ${hours} \nPay rate: ${rate} \nTax Amount: ${tax} \nNet Pay: ${netPay}`
+                );
+                //add the new age data to the #info element
+                info.innerHTML += `<p>Pay Calculator <br><br>HOURS WORKED: ${hours} <br> HOURLY RATE: ${rate} <br> GROSS PAY: ${grossPay} <br> TAX AMOUNT: ${tax} <br> NET PAY ${netPay}</p>`;
+            } //END of alertInfo()
+
+            //selecting another button on the page
+            document
+                .querySelector(`#submit`)
+                .addEventListener(`click`, submitNow);
+
+            function submitNow(e) {
+                //local variables:
+                //these local variables will hold the VALUES from the mini form
+                var first = document.querySelector(`#first`).value;
+                var last = document.querySelector(`#last`).value;
+                var hours = document.querySelector(`#hours`).value;
+                var rate = document.querySelector(`#rate`).value;
+
+                //cast information to numbers
+                hours = Number(hours);
+                rate = Number(rate);
+
+                //calculate gross pay
+                var grossPay = (hours * rate).toFixed(2);
+                var tax = (grossPay * 0.2).toFixed(2);
+                var netPay = (grossPay - tax).toFixed(2);
+
+                //Variable for full name
+                var full = first + ` ` + last;
+
+                alert(
+                    `Hi, ${full} \n\nHOURS WORKED: ${hours} \nHOURLY RATE: ${rate} \nGROSS PAY: ${grossPay} \nTAX AMOUNT: ${tax} \nNET PAY: ${netPay}`
+                );
+            }
+        </script>
+    </body>
+</html>
