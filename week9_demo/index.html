@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>W9 | Demo</title>
+
+        <style>
+            .red {
+                border: 1px solid red;
+                margin-bottom: 10px;
+                min-height: 20px;
+                padding: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Week 9 Demo & Creating Elements in JS</h1>
+        <h3><i>Using the .createElement() & .appendChild() methods</i></h3>
+
+        <script>
+            var people = [
+                {
+                    first: "Daenerys",
+                    last: "Targaryen",
+                    credit: "Queen of Meereen Khaleesi of the Great Grass Sea Mother of Dragons The Unburnt Breaker of Chains Television: Queen of the Andals and the First Men Protector of the Seven Kingdoms Lady of Dragonstone",
+                },
+                {
+                    first: "Cersei",
+                    last: "Lannister",
+                    credit: "Protector of the Realm Lady Paramount of the Westerlands Lady of Casterly Rock Light of the West Queen Dowager Queen Regent Television: Queen of the Andals and the First Men",
+                },
+                {
+                    first: "Yara",
+                    last: "Greyjoy",
+                    credit: "Queen of the Iron Islands and Lady Reaper of Pyke",
+                },
+            ]
+
+            var body = document.querySelector("body")
+            console.log(body)
+            console.dir(body)
+
+            for (let i = 0; i < people.length; i++) {
+                var tempDiv = document.createElement("div")
+
+                tempDiv.setAttribute("id", i)
+                tempDiv.setAttribute(`class`, `red`)
+
+                for (key in people[i]) {
+                    var h3 = document.createElement("h3")
+                    var text1 = document.createTextNode(key)
+
+                    h3.appendChild(text1)
+                    tempDiv.appendChild(h3)
+
+                    var p = document.createElement(`p`)
+                    var text = document.createTextNode(people[i][key])
+                    p.appendChild(text)
+                    tempDiv.appendChild(p)
+                }
+
+                body.appendChild(tempDiv)
+            }
+        </script>
+    </body>
+</html>
